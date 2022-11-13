@@ -13,16 +13,29 @@ concurrency:
 jobs:
   zsh:
     name: Install zsh and oh-my-zsh with plugins
+    strategy:
+      fail-fast: false
+      matrix:
+        image: ["ubuntu:latest", "archlinux:latest"]
     runs-on: ubuntu-latest
+    container:
+      image: ${{ matrix.image }}
     timeout-minutes: 20
 
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install zsh and dependencies
+      - name: Install zsh and dependencies for Ubuntu
+        if: ${{matrix.image == "ubuntu:latest"}}
         run: |
           apt-get update
           apt-get install -y zsh curl git
+
+      - name: Install zsh and dependencies for Arch
+        if: ${{matrix.image == "archlinux:latest"}}
+        run: |
+          pacman -Syu --noconfirm
+          pacman -S --noconfirm zsh curl git
 
       - name: Install oh-my-zsh and plugins using script
         run: sh ./zsh/install.sh
