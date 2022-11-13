@@ -1,2 +1,3 @@
 # dotfiles
-My configuration files
+
+## [zsh](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
