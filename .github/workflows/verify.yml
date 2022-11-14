@@ -44,4 +44,4 @@ jobs:
         run: |
           tmux new-session -d -s trigger-install-session
           tmux kill-session -t trigger-install-session
-          [ -d "/home/lobis/.tmux/plugins/tpm" ] && [ -d "/home/lobis/.tmux/plugins/tmux-themepack" ] && echo "tmux plugins OK" || exit 1
+          [ -d "~/.tmux/plugins/tpm" ] && [ -d "~/.tmux/plugins/tmux-themepack" ] && echo "tmux plugins OK" || exit 1
