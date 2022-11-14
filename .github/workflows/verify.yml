@@ -43,9 +43,10 @@ jobs:
       - name: Install oh-my-zsh and plugins using script
         run: sh ./zsh/install.sh
 
+      # Attempt to create blank files to check for the existence of plugin directories
       - name: Run tmux to trigger plugin manager installation (tpm)
-        shell: bash -i {0}
         run: |
           tmux new-session -d -s trigger-install-session
           tmux kill-session -t trigger-install-session
-          [ -d "~/.tmux" ] && echo "tmux plugins OK" || exit 1
+          touch ~/.tmux/plugins/tpm/.exists
+          touch ~/.tmux/plugins/tmux-themepack/.exists
