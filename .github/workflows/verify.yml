@@ -44,8 +44,8 @@ jobs:
         run: sh ./zsh/install.sh
 
       - name: Run tmux to trigger plugin manager installation (tpm)
+        shell: bash -i {0}
         run: |
-          shell: bash -i {0}
           tmux new-session -d -s trigger-install-session
           tmux kill-session -t trigger-install-session
           [ -d "~/.tmux" ] && echo "tmux plugins OK" || exit 1
