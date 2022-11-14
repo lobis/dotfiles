@@ -47,4 +47,3 @@ jobs:
         run: |
           tmux new-session -d -s trigger-install-session
           tmux kill-session -t trigger-install-session
-          [ -d "~/.tmux/plugins/tpm" ] && [ -d "~/.tmux/plugins/tmux-themepack" ] && echo "tmux plugins OK" || exit 1
