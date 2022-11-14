@@ -29,13 +29,19 @@ jobs:
         if: matrix.image == 'ubuntu:latest'
         run: |
           apt-get update
-          apt-get install -y zsh curl git
+          apt-get install -y zsh curl git tmux
 
       - name: Install zsh and dependencies for Arch
         if: matrix.image == 'archlinux:latest'
         run: |
           pacman -Syu --noconfirm
-          pacman -S --noconfirm zsh curl git
+          pacman -S --noconfirm zsh curl git tmux
 
       - name: Install oh-my-zsh and plugins using script
         run: sh ./zsh/install.sh
+
+      - name: Run tmux to trigger plugin manager installation (tpm)
+        run: |
+          tmux new-session -d -s trigger-install-session
+          tmux kill-session -t trigger-install-session
+          [ -d "/home/lobis/.tmux/plugins/tpm" ] && [ -d "/home/lobis/.tmux/plugins/tmux-themepack" ] && echo "tmux plugins OK" || exit 1
