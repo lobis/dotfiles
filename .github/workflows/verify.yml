@@ -29,16 +29,16 @@ jobs:
         if: matrix.image == 'ubuntu:latest'
         run: |
           apt-get update
-          apt-get install -y zsh curl git tmux
+          apt-get install -y zsh curl git rsync tmux
 
       - name: Install zsh and dependencies for Arch
         if: matrix.image == 'archlinux:latest'
         run: |
           pacman -Syu --noconfirm
-          pacman -S --noconfirm zsh curl git tmux
+          pacman -S --noconfirm zsh curl git rsync tmux
 
-      - name: Copy dotfiles
-        run: cp .* ~/
+      - name: Copy dotfiles to home directory
+        run: rsync -av --progress .[^.]* ~/ --exclude .github --exclude .git
 
       - name: Install oh-my-zsh and plugins using script
         run: sh ./zsh/install.sh
