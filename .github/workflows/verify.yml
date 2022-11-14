@@ -37,6 +37,9 @@ jobs:
           pacman -Syu --noconfirm
           pacman -S --noconfirm zsh curl git tmux
 
+      - name: Copy dotfiles
+        run: cp .* ~/
+
       - name: Install oh-my-zsh and plugins using script
         run: sh ./zsh/install.sh
 
