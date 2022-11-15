@@ -1,5 +1,6 @@
 # For additional information see for example https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/templates/zshrc.zsh-template
 
+# If zsh is not the default shell, you can change via `chsh -s $(which zsh)`.
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 # Install my zsh dependencies (oh-my-zsh and plugins)
