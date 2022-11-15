@@ -55,5 +55,5 @@ $CHEZMOI init --apply https://github.com/lobis/dotfiles.git
 TMUX_PLUGIN_MANAGER=$HOME/.tmux/plugins/tpm
 rm -rf $TMUX_PLUGIN_MANAGER
 git clone --depth=1 https://github.com/tmux-plugins/tpm $TMUX_PLUGIN_MANAGER
-tmux -V
+tmux -V # if we don't add this it will fail the CI workflow
 sh -c $HOME/.tmux/plugins/tpm/bin/install_plugins
