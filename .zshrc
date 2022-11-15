@@ -20,7 +20,7 @@ if [ ! -d "$JETBRAINS_FONT_DIR" ]; then
     mkdir -p $JETBRAINS_FONT_DIR
     curl -fLo "$JETBRAINS_FONT_DIR/JetBrains Mono Regular Nerd Font Complete.ttf" https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/JetBrainsMono/Ligatures/Regular/complete/JetBrains%20Mono%20Regular%20Nerd%20Font%20Complete.ttf
     # Update fonts cache
-    if ! command -v fc-cache --version >/dev/null 2>&1; then
+    if command -v fc-cache --version >/dev/null 2>&1; then
         echo "Updating fonts cache..."
         fc-cache -f
     fi
