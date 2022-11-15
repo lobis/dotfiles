@@ -12,3 +12,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/lobis/dotfiles/main/instal
 ```
 
 This will copy the dotfiles into your home using [chezmoi](https://github.com/twpayne/chezmoi).
+
+To install JetBrains Mono nerd fonts:
+
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/lobis/dotfiles/main/install-fonts.sh)"
+```
