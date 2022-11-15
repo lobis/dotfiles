@@ -1,5 +1,6 @@
 # For additional information see for example https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/templates/zshrc.zsh-template
 
+# Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 # Install my zsh dependencies (oh-my-zsh and plugins)
 if [ ! -d "$ZSH" ]; then
@@ -19,10 +20,11 @@ if [ ! -d "$JETBRAINS_FONT_DIR" ]; then
     mkdir -p $JETBRAINS_FONT_DIR
     curl -fLo "$JETBRAINS_FONT_DIR/JetBrains Mono Regular Nerd Font Complete.ttf" https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/JetBrainsMono/Ligatures/Regular/complete/JetBrains%20Mono%20Regular%20Nerd%20Font%20Complete.ttf
     # Update fonts cache
-    fc-cache -f
+    if ! command -v fc-cache --version >/dev/null 2>&1; then
+        echo "Updating fonts cache..."
+        fc-cache -f
+    fi
 fi
-
-# Path to your oh-my-zsh installation.
 
 # Custom theme that must be installed
 ZSH_THEME="powerlevel10k/powerlevel10k"
