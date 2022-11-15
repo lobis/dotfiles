@@ -48,4 +48,6 @@ jobs:
       - name: Check tmux plugings
         run: |
           touch ~/.tmux/plugins/tpm/.test
+          tmux new-session -d -s trigger-plugins-install-session
+          tmux kill-session -t trigger-plugins-install-session
           touch ~/.tmux/plugins/tmux-themepack/.test
