@@ -25,6 +25,11 @@ $CHEZMOI --version
 # Install dotfiles
 $CHEZMOI init --apply https://github.com/lobis/dotfiles.git
 
+# If zsh is available set it as the default shell
+if command -v zsh --version >/dev/null 2>&1; then
+    chsh -s $(which zsh)
+fi
+
 # This installs 'oh-my-zsh' and different plugins
 ZSH=$HOME/.oh-my-zsh
 rm -rf $ZSH
