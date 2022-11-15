@@ -33,6 +33,7 @@ rm -rf $TMUX_PLUGIN_MANAGER
 git clone --depth=1 https://github.com/tmux-plugins/tpm $TMUX_PLUGIN_MANAGER
 sh -c $HOME/.tmux/plugins/tpm/bin/install_plugins
 
+# Inspired by 'https://github.com/twpayne/dotfiles'
 CHEZMOI=chezmoi
 if ! command -v $CHEZMOI --version >/dev/null 2>&1; then
     echo "'chezmoi' not found in system."
