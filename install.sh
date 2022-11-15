@@ -31,6 +31,7 @@ git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git $ZS
 TMUX_PLUGIN_MANAGER=$HOME/.tmux/plugins/tpm
 rm -rf $TMUX_PLUGIN_MANAGER
 git clone --depth=1 https://github.com/tmux-plugins/tpm $TMUX_PLUGIN_MANAGER
+tmux source ~/.tmux.conf
 sh -c $HOME/.tmux/plugins/tpm/bin/install_plugins
 
 # Inspired by 'https://github.com/twpayne/dotfiles'
