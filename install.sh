@@ -26,7 +26,9 @@ $CHEZMOI --version
 $CHEZMOI init --apply https://github.com/lobis/dotfiles.git
 
 # If zsh is available set it as the default shell
-if command -v zsh --version >/dev/null 2>&1; then
+if ! command -v zsh --version >/dev/null 2>&1; then
+    echo "'zsh' not found. Installation instructions: https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH." >&2
+else
     chsh -s $(which zsh)
 fi
 
