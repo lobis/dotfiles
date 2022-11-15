@@ -41,7 +41,7 @@ jobs:
         run: rsync -av --progress .[^.]* ~/ --exclude .github --exclude .git
 
       - name: Source .zshrc and verify automatic oh-my-zsh and plugin installation
-        shell: zsh
+        shell: zsh {0}
         run: source .zshrc
 
       # Attempt to create blank files to check for the existence of plugin directories
