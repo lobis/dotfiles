@@ -17,10 +17,8 @@ fi
 JETBRAINS_FONTS_DIR="~/.local/share/fonts/JetBrains"
 if [ ! -d "$JETBRAINS_FONTS_DIR" ]; then
     echo "Downloading JetBrains Mono font to '$JETBRAINS_FONTS_DIR'..."
-    # mkdir -p $JETBRAINS_FONTS_DIR
-    mkdir -p /github/home/.local/share/fonts/JetBrains
+    mkdir -p $HOME/.local/share/fonts/JetBrains
     curl -f --output "$JETBRAINS_FONTS_DIR/JetBrains-Mono-Regular-Nerd-Font-Complete.ttf" https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/JetBrainsMono/Ligatures/Regular/complete/JetBrains%20Mono%20Regular%20Nerd%20Font%20Complete.ttf
-    # Update fonts cache
     if command -v fc-cache --version >/dev/null 2>&1; then
         echo "Updating fonts cache..."
         fc-cache -f
