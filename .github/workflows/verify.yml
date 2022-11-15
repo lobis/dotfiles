@@ -57,3 +57,8 @@ jobs:
           tmux new-session -d -s trigger-plugins-install-session
           tmux kill-session -t trigger-plugins-install-session
           touch ~/.tmux/plugins/tmux-themepack/.test
+
+      - name: Install fonts
+        run: |
+          sh -c "$(curl -fsSL https://raw.githubusercontent.com/lobis/dotfiles/main/install-fonts.sh)"
+          ls -lht $HOME/.local/share/fonts/JetBrains

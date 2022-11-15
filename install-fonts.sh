@@ -16,7 +16,7 @@ PREFIX=https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/JetBrainsM
 #for font_name in ["Bold", "Bold Italic", "ExtraBold", "ExtraBold Italic", "ExtraLight", "ExtraLight Italic", "Italic", "Light", "Light Italic", "Medium", "Medium Italic", "Regular", "SemiBold", "SemiBold Italic", "Thin", "Thin Italic"]:
 #    print(f"""curl -fL --output "$JETBRAINS_FONTS_DIR/JetBrains-Mono-{font_name.replace(" ", "-")}-Nerd-Font-Complete.ttf" $PREFIX/{font_name.replace(" ", "")}/complete/JetBrains%20Mono%20{font_name.replace(" ", "%20")}%20Nerd%20Font%20Complete.ttf""")
 
-curl -fL --output "/tmp/JetBrains-Mono-Bold-Nerd-Font-Complete.ttf" https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/JetBrainsMono/Ligatures/Bold/complete/JetBrains%20Mono%20Bold%20Nerd%20Font%20Complete.ttf
+curl -fL --output "$JETBRAINS_FONTS_DIR/JetBrains-Mono-Bold-Nerd-Font-Complete.ttf" $PREFIX/Bold/complete/JetBrains%20Mono%20Bold%20Nerd%20Font%20Complete.ttf
 curl -fL --output "$JETBRAINS_FONTS_DIR/JetBrains-Mono-Bold-Italic-Nerd-Font-Complete.ttf" $PREFIX/BoldItalic/complete/JetBrains%20Mono%20Bold%20Italic%20Nerd%20Font%20Complete.ttf
 curl -fL --output "$JETBRAINS_FONTS_DIR/JetBrains-Mono-ExtraBold-Nerd-Font-Complete.ttf" $PREFIX/ExtraBold/complete/JetBrains%20Mono%20ExtraBold%20Nerd%20Font%20Complete.ttf
 curl -fL --output "$JETBRAINS_FONTS_DIR/JetBrains-Mono-ExtraBold-Italic-Nerd-Font-Complete.ttf" $PREFIX/ExtraBoldItalic/complete/JetBrains%20Mono%20ExtraBold%20Italic%20Nerd%20Font%20Complete.ttf
