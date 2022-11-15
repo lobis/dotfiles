@@ -55,6 +55,5 @@ $CHEZMOI init --apply https://github.com/lobis/dotfiles.git
 TMUX_PLUGIN_MANAGER=$HOME/.tmux/plugins/tpm
 rm -rf $TMUX_PLUGIN_MANAGER
 git clone --depth=1 https://github.com/tmux-plugins/tpm $TMUX_PLUGIN_MANAGER
-tmux new-session -d -s trigger-install-session
-tmux kill-session -t trigger-install-session
+tmux -V
 sh -c $HOME/.tmux/plugins/tpm/bin/install_plugins
