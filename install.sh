@@ -33,7 +33,7 @@ fi
 # This installs 'oh-my-zsh' and different plugins
 ZSH=$HOME/.oh-my-zsh
 rm -rf $ZSH
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/lobis/dotfiles/main/install.sh)" "" --unattended
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 ZSH_CUSTOM="$ZSH/custom"
 

@@ -37,7 +37,7 @@ jobs:
 
       - name: Run install script
         run: |
-          sh -c "$(curl -fsSL https://raw.githubusercontent.com/lobis/dotfiles/main/zsh/install.sh)"
+          sh -c "$(curl -fsSL https://raw.githubusercontent.com/lobis/dotfiles/main/install.sh)"
 
       - name: Check oh-my-zsh plugins
         run: |
