@@ -41,7 +41,7 @@ jobs:
 
       - name: Check for dotfiles
         run: |
-          ls ~ | grep .*
+          ls -la ~/
 
       - name: Check oh-my-zsh plugins
         run: |
