@@ -2,23 +2,36 @@
 
 export ZSH="$HOME/.oh-my-zsh"
 # Install my zsh dependencies (oh-my-zsh and plugins)
-[ ! -d "$ZSH" ] && sh -c "$(curl -fsSL https://raw.githubusercontent.com/lobis/dotfiles/main/zsh/install.sh)"
+if [ ! -d "$ZSH" ]; then
+    echo "'oh-my-zsh' not found, installing..."
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/lobis/dotfiles/main/zsh/install.sh)"
+fi
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
     source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Download fonts if missing
+JETBRAINS_FONT_DIR="~/.local/share/fonts/JetBrains"
+if [ ! -d "$JETBRAINS_FONT_DIR" ]; then
+    echo "Downloading JetBrains Mono font to '$JETBRAINS_FONT_DIR'..."
+    mkdir -p $JETBRAINS_FONT_DIR
+    curl -fLo "$JETBRAINS_FONT_DIR/JetBrains Mono Regular Nerd Font Complete.ttf" https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/JetBrainsMono/Ligatures/Regular/complete/JetBrains%20Mono%20Regular%20Nerd%20Font%20Complete.ttf
+    # Update fonts cache
+    fc-cache -f
+fi
+
 # Path to your oh-my-zsh installation.
 
-# custom theme that must be installed
+# Custom theme that must be installed
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-# update every day without asking
+# Update every day without asking
 zstyle ':omz:update' mode auto
 zstyle ':omz:update' frequency 1
 
-# plugings must be installed
+# Plugings must be installed
 plugins=(
     git
     autoupdate
