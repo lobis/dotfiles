@@ -14,7 +14,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Download fonts if missing
-JETBRAINS_FONTS_DIR="~/.local/share/fonts/JetBrains"
+JETBRAINS_FONTS_DIR="$HOME/.local/share/fonts/JetBrains"
 if [ ! -d "$JETBRAINS_FONTS_DIR" ]; then
     echo "Downloading JetBrains Mono font to '$JETBRAINS_FONTS_DIR'..."
     mkdir -p $JETBRAINS_FONTS_DIR
