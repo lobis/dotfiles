@@ -40,8 +40,9 @@ jobs:
       - name: Copy dotfiles to home directory
         run: rsync -av --progress .[^.]* ~/ --exclude .github --exclude .git
 
-      - name: Install oh-my-zsh and plugins using script
-        run: sh ./zsh/install.sh
+      - name: Source .zshrc and verify automatic oh-my-zsh and plugin installation
+        shell: zsh
+        run: source .zshrc
 
       # Attempt to create blank files to check for the existence of plugin directories
       - name: Run tmux to trigger plugin manager installation (tpm)

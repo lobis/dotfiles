@@ -1,12 +1,15 @@
 # For additional information see for example https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/templates/zshrc.zsh-template
 
+export ZSH="$HOME/.oh-my-zsh"
+# Install my zsh dependencies (oh-my-zsh and plugins)
+[ ! -d "$ZSH" ] && sh -c "$(curl -fsSL https://raw.githubusercontent.com/lobis/dotfiles/main/zsh/install.sh)"
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
     source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
 
 # custom theme that must be installed
 ZSH_THEME="powerlevel10k/powerlevel10k"
