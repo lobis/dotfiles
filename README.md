@@ -7,7 +7,7 @@
 
 To install the dotfiles, run the following command:
 
-```sh
+```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/lobis/dotfiles/main/install.sh)"
 ```
 

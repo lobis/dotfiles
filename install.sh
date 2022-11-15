@@ -1,33 +1,9 @@
 #!/bin/sh
 set -e
 
-CHEZMOI=chezmoi
-if ! command -v $CHEZMOI --version >/dev/null 2>&1; then
-    echo "'chezmoi' not found in system."
-    BINARY_DIRECTORY_LOCAL="$HOME/.local/bin"
-    CHEZMOI="$BINARY_DIRECTORY_LOCAL/chezmoi"
-    if ! command -v $CHEZMOI --version >/dev/null 2>&1; then
-        echo "'chezmoi' not in local binary directory. Installing latest version."
-        if [ "$(command -v curl)" ]; then
-            sh -c "$(curl -fsSL https://git.io/chezmoi)" -- -b "$BINARY_DIRECTORY_LOCAL"
-            elif [ "$(command -v wget)" ]; then
-            sh -c "$(wget -qO- https://git.io/chezmoi)" -- -b "$BINARY_DIRECTORY_LOCAL"
-        else
-            echo "To install chezmoi, you must have curl or wget installed." >&2
-            exit 1
-        fi
-    else
-        echo "'chezmoi' found in local binary directory ($CHEZMOI)."
-    fi
-fi
-$CHEZMOI --version
-
-# Install dotfiles
-$CHEZMOI init --apply https://github.com/lobis/dotfiles.git
-
 # If zsh is available set it as the default shell
 if command -v zsh --version >/dev/null 2>&1; then
-    # which may not be installed
+    # 'which' may not be installed
     if command -v which --version >/dev/null 2>&1; then
         echo "Setting zsh as default shell..."
         chsh -s $(which zsh)
@@ -56,3 +32,27 @@ TMUX_PLUGIN_MANAGER=$HOME/.tmux/plugins/tpm
 rm -rf $TMUX_PLUGIN_MANAGER
 git clone --depth=1 https://github.com/tmux-plugins/tpm $TMUX_PLUGIN_MANAGER
 sh -c $HOME/.tmux/plugins/tpm/bin/install_plugins
+
+CHEZMOI=chezmoi
+if ! command -v $CHEZMOI --version >/dev/null 2>&1; then
+    echo "'chezmoi' not found in system."
+    BINARY_DIRECTORY_LOCAL="$HOME/.local/bin"
+    CHEZMOI="$BINARY_DIRECTORY_LOCAL/chezmoi"
+    if ! command -v $CHEZMOI --version >/dev/null 2>&1; then
+        echo "'chezmoi' not in local binary directory. Installing latest version."
+        if [ "$(command -v curl)" ]; then
+            sh -c "$(curl -fsSL https://git.io/chezmoi)" -- -b "$BINARY_DIRECTORY_LOCAL"
+            elif [ "$(command -v wget)" ]; then
+            sh -c "$(wget -qO- https://git.io/chezmoi)" -- -b "$BINARY_DIRECTORY_LOCAL"
+        else
+            echo "To install chezmoi, you must have curl or wget installed." >&2
+            exit 1
+        fi
+    else
+        echo "'chezmoi' found in local binary directory ($CHEZMOI)."
+    fi
+fi
+$CHEZMOI --version
+
+# Install dotfiles
+$CHEZMOI init --apply https://github.com/lobis/dotfiles.git
