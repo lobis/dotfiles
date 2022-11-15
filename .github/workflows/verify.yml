@@ -39,6 +39,10 @@ jobs:
         run: |
           sh -c "$(curl -fsSL https://raw.githubusercontent.com/lobis/dotfiles/main/install.sh)"
 
+      - name: Check for dotfiles
+        run: |
+          ls ~ | grep .*
+
       - name: Check oh-my-zsh plugins
         run: |
           touch ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/.test

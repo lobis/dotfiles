@@ -26,10 +26,12 @@ $CHEZMOI --version
 $CHEZMOI init --apply https://github.com/lobis/dotfiles.git
 
 # If zsh is available set it as the default shell
-if ! command -v zsh --version >/dev/null 2>&1; then
-    echo "'zsh' not found. Installation instructions: https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH." >&2
-else
-    chsh -s $(which zsh)
+if command -v zsh --version >/dev/null 2>&1; then
+    # which may not be installed
+    if command -v which --version >/dev/null 2>&1; then
+        echo "Setting zsh as default shell..."
+        chsh -s $(which zsh)
+    fi
 fi
 
 # This installs 'oh-my-zsh' and different plugins
