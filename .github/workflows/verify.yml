@@ -40,11 +40,14 @@ jobs:
       - name: Copy dotfiles to home directory
         run: rsync -av --progress .[^.]* ~/ --exclude .github --exclude .git
 
-      - name: Source .zshrc and verify automatic oh-my-zsh and plugin installation
+      - name: Source .zshrc and verify automatic fonts and oh-my-zsh with plugins installation
         shell: zsh {0}
-        run: source .zshrc
+        run: |
+          source .zshrc
+          touch ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/.exists
+          touch ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/.exists
+          touch ~/.local/share/fonts/JetBrains/.exists
 
-      # Attempt to create blank files to check for the existence of plugin directories
       - name: Run tmux to trigger plugin manager installation (tpm)
         run: |
           tmux new-session -d -s trigger-install-session
