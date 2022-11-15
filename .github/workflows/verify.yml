@@ -11,8 +11,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  zsh:
-    name: Install zsh and oh-my-zsh with plugins
+  chezmoi:
+    name: Install dotfiles and plugins with chezmoi script
     strategy:
       fail-fast: false
       matrix:
@@ -23,8 +23,6 @@ jobs:
     timeout-minutes: 20
 
     steps:
-      - uses: actions/checkout@v3
-
       - name: Install zsh and dependencies for Ubuntu
         if: matrix.image == 'ubuntu:latest'
         run: |
@@ -37,20 +35,17 @@ jobs:
           pacman -Syu --noconfirm
           pacman -S --noconfirm zsh curl git rsync tmux
 
-      - name: Copy dotfiles to home directory
-        run: rsync -av --progress .[^.]* ~/ --exclude .github --exclude .git
-
-      - name: Source .zshrc and verify automatic fonts and oh-my-zsh with plugins installation
-        shell: zsh {0}
+      - name: Run install script
         run: |
-          source .zshrc
-          touch ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/.exists
-          touch ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/.exists
-          touch ~/.local/share/fonts/JetBrains/.exists
+          sh -c "$(curl -fsSL https://raw.githubusercontent.com/lobis/dotfiles/main/zsh/install.sh)"
 
-      - name: Run tmux to trigger plugin manager installation (tpm)
+      - name: Check oh-my-zsh plugins
         run: |
-          tmux new-session -d -s trigger-install-session
-          tmux kill-session -t trigger-install-session
-          touch ~/.tmux/plugins/tpm/.exists
-          touch ~/.tmux/plugins/tmux-themepack/.exists
+          touch ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/.test
+          touch ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/.test
+          touch ~/.oh-my-zsh/custom/themes/powerlevel10k/.test
+
+      - name: Check tmux plugings
+        run: |
+          touch ~/.tmux/plugins/tpm/.test
+          touch ~/.tmux/plugins/tmux-themepack/.test
