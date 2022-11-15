@@ -19,6 +19,7 @@ if [ ! -d "$JETBRAINS_FONTS_DIR" ]; then
     echo "Downloading JetBrains Mono font to '$JETBRAINS_FONTS_DIR'..."
     mkdir -p $JETBRAINS_FONTS_DIR
     echo "TEST: $JETBRAINS_FONTS_DIR"
+    touch $JETBRAINS_FONTS_DIR/test.txt
     ls -la $JETBRAINS_FONTS_DIR
     curl -f --output "$JETBRAINS_FONTS_DIR/JetBrains-Mono-Regular-Nerd-Font-Complete.ttf" https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/JetBrainsMono/Ligatures/Regular/complete/JetBrains%20Mono%20Regular%20Nerd%20Font%20Complete.ttf
     if command -v fc-cache --version >/dev/null 2>&1; then

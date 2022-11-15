@@ -46,6 +46,7 @@ jobs:
           source .zshrc
           touch ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/.exists
           touch ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/.exists
+          ls -la ~/.local/share/fonts/JetBrains
           touch ~/.local/share/fonts/JetBrains/.exists
 
       - name: Run tmux to trigger plugin manager installation (tpm)
