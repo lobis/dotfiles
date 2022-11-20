@@ -1,13 +1,13 @@
 # For additional information see for example https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/templates/zshrc.zsh-template
 # If zsh is not the default shell, you can change via `chsh -s $(which zsh)`.
 
-# 'oh-my-zsh' installation path
-export ZSH="$HOME/.oh-my-zsh"
-
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
     source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+
+# 'oh-my-zsh' installation path
+export ZSH="$HOME/.oh-my-zsh"
 
 # Custom theme that must be installed
 ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -25,10 +25,13 @@ plugins=(
     zsh-syntax-highlighting
 )
 
+# Load fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 source $ZSH/oh-my-zsh.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[ -f ~/.p10k.zsh ] && source ~/.p10k.zsh
 
 # Add to PATH
 # https://stackoverflow.com/questions/11530090/adding-a-new-entry-to-the-path-variable-in-zsh/18077919#18077919
@@ -38,7 +41,4 @@ path=("$HOME/.local/bin" $path)
 export PATH
 
 # If not set tmux will not render icons correctly unless opened with -u flag
-[[ ! -v LANG ]] && export LANG=C.UTF-8
-
-# fuzzy search
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -v LANG ] || export LANG=C.UTF-8
