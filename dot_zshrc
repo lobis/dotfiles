@@ -26,6 +26,7 @@ plugins=(
 )
 
 # Load fzf
+export FZF_BASE=$ZSH/custom/plugins/fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source $ZSH/oh-my-zsh.sh
