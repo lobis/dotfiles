@@ -58,6 +58,10 @@ jobs:
           tmux kill-session -t trigger-plugins-install-session
           touch ~/.tmux/plugins/tmux-themepack/.test
 
+      - name: Load zsh
+        run: |
+          exec zsh
+
       - name: Install fonts
         run: |
           sh -c "$(curl -fsSL https://raw.githubusercontent.com/lobis/dotfiles/main/install-fonts.sh)"
