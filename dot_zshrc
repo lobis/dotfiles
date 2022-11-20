@@ -25,10 +25,6 @@ plugins=(
     zsh-syntax-highlighting
 )
 
-# Related to 'fzf'
-[[ ! -v ZSH_CUSTOM ]] && ZSH_CUSTOM=$ZSH/custom
-export FZF_BASE=$ZSH_CUSTOM/plugins/fzf
-
 source $ZSH/oh-my-zsh.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -43,3 +39,6 @@ export PATH
 
 # If not set tmux will not render icons correctly unless opened with -u flag
 [[ ! -v LANG ]] && export LANG=C.UTF-8
+
+# fuzzy search
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
