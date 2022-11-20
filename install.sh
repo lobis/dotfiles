@@ -58,9 +58,6 @@ git clone --depth=1 https://github.com/tmux-plugins/tpm $TMUX_PLUGIN_MANAGER
 tmux -V # if we don't add this it will fail the CI workflow
 sh -c $HOME/.tmux/plugins/tpm/bin/install_plugins
 
-# If not set tmux will not render icons correctly unless opened with -u flag
-[[ ! -v LANG ]] && export LANG=C.UTF-8
-
 # If zsh is available reload the configuration
 if command -v zsh --version >/dev/null 2>&1; then
     exec zsh
