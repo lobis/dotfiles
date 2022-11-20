@@ -43,3 +43,7 @@ export PATH
 
 # If not set tmux will not render icons correctly unless opened with -u flag
 [ -v LANG ] || export LANG=C.UTF-8
+
+if command -v nvim --version >/dev/null 2>&1; then
+    alias vim="nvim"
+fi
