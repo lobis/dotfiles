@@ -20,6 +20,7 @@ zstyle ':omz:update' frequency 1
 plugins=(
     git
     autoupdate
+    fzf
     zsh-autosuggestions
     zsh-syntax-highlighting
 )

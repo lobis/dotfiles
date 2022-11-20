@@ -23,6 +23,7 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/the
 # Install plugins. They must be added to .zshrc file
 git clone --depth=1 https://github.com/TamCore/autoupdate-oh-my-zsh-plugins $ZSH_CUSTOM/plugins/autoupdate
 git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+git clone --depth 1 https://github.com/junegunn/fzf.git $ZSH_CUSTOM/plugins/fzf
 
 # This plugin must appear last in .zshrc
 git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
