@@ -3,15 +3,8 @@ set -e
 
 # If zsh is available set it as the default shell
 if command -v zsh --version >/dev/null 2>&1; then
-    # 'which' may not be installed
-    if command -v which --version >/dev/null 2>&1; then
-        if id -u $(whoami) >/dev/null 2>&1; then
-            echo "Setting zsh as default shell..."
-            chsh -s $(which zsh)
-        else
-            echo "User '$(whoami)' not found"
-        fi
-    fi
+    echo "Setting zsh as default shell..."
+    chsh -s $(which zsh) || "Could not set zsh as default shell. Maybe 'which' is not installed or user is not found on /etc/passwd..."
 fi
 
 # This installs 'oh-my-zsh' and different plugins
