@@ -33,7 +33,7 @@ jobs:
         if: matrix.image == 'archlinux:latest'
         run: |
           pacman -Syu --noconfirm
-          pacman -S --noconfirm zsh curl git rsync tmux
+          pacman -S --noconfirm which zsh curl git rsync tmux
 
       - name: Run install script
         run: |
