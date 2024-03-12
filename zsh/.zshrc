@@ -46,3 +46,8 @@ export PATH
 [ -v LANG ] || export LANG=C.UTF-8
 
 EDITOR="vim"
+
+if [ -f ~/.aliases.sh ]; then
+    source ~/.aliases.sh
+fi
+
