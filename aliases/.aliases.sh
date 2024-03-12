@@ -16,3 +16,9 @@ fi
 if command -v bat > /dev/null 2>&1; then
     alias cat="bat"
 fi
+
+# 'ripgrep' (https://github.com/BurntSushi/ripgrep)
+if command -v rg > /dev/null 2>&1; then
+    alias grep="rg"
+fi
+
