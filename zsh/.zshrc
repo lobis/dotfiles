@@ -37,6 +37,9 @@ source $ZSH/oh-my-zsh.sh
 # Add to PATH
 # https://stackoverflow.com/questions/11530090/adding-a-new-entry-to-the-path-variable-in-zsh/18077919#18077919
 
+# Create directory in case it does not exist
+mkdir -p "$HOME/.local/bin"
+
 path=("$HOME/.local/bin" $path)
 # export to sub-processes (make it inherited by child processes)
 export PATH
@@ -53,16 +56,15 @@ fi
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/lobis/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('$HOME/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/lobis/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/lobis/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "$HOME/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "$HOME/anaconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/lobis/anaconda3/bin:$PATH"
+        export PATH="$HOME/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-

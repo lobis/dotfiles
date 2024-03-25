@@ -1,10 +1,16 @@
+# Check if a program exists
 
-if command -v nvim > /dev/null 2>&1; then
+program_exists() {
+    command -v "$1" > /dev/null 2>&1
+}
+
+# Set aliases based on program existence
+
+if program_exists nvim; then
     alias vim="nvim"
 fi
 
-# 'lsd' (https://github.com/Peltoche/lsd)
-if command -v lsd > /dev/null 2>&1; then
+if program_exists lsd; then
     alias ls="lsd"
     alias l="ls -l"
     alias la="ls -a"
@@ -12,13 +18,14 @@ if command -v lsd > /dev/null 2>&1; then
     alias lt="ls --tree"
 fi
 
-# 'bat' (https://github.com/sharkdp/bat)
-if command -v bat > /dev/null 2>&1; then
+if program_exists bat; then
     alias cat="bat"
 fi
 
-# 'ripgrep' (https://github.com/BurntSushi/ripgrep)
-if command -v rg > /dev/null 2>&1; then
-    alias grep="rg"
+if program_exists fd; then
+    alias find="fd"
 fi
 
+if program_exists rg; then
+    alias grep="rg"
+fi
