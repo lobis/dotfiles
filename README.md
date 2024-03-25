@@ -51,16 +51,10 @@ curl -L https://github.com/BurntSushi/ripgrep/releases/download/$RIPGREP_VERSION
 
 ### Dotfiles
 
-To install the dotfiles, run the following command:
+Dotfiles are managed using [GNU Stow](https://www.gnu.org/software/stow/). To install the dotfiles, run the following commands:
 
 ```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/lobis/dotfiles/main/install.sh)"
-```
-
-This will copy the dotfiles into your home using [chezmoi](https://github.com/twpayne/chezmoi).
-
-To install JetBrains Mono nerd fonts:
-
-```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/lobis/dotfiles/main/install-fonts.sh)"
+git clone https://github.com/lobis/dotfiles.git
+cd dotfiles
+stow -t ~ bash git neovim tmux
 ```
