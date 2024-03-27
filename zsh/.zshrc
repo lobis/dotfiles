@@ -8,6 +8,7 @@ fi
 
 # 'oh-my-zsh' installation path
 export ZSH="$HOME/.oh-my-zsh"
+export XDG_CONFIG_HOME="$HOME/.config"
 
 # Custom theme that must be installed
 ZSH_THEME="powerlevel10k/powerlevel10k"
