@@ -55,5 +55,16 @@ if [ -f ~/.aliases.sh ]; then
     source ~/.aliases.sh
 fi
 
-source $HOME/anaconda3/bin/activate
+program_exists() {
+    command -v "$1" > /dev/null 2>&1
+}
+
+if [ -f ~/anaconda3/bin/activate ]; then
+    source ~/anaconda3/bin/activate
+fi
+
+# check if zoxide is installed
+if program_exists zoxide; then
+    eval "$(zoxide init zsh)"
+fi
 
