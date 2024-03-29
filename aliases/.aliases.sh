@@ -29,3 +29,8 @@ fi
 if program_exists rg; then
     alias grep="rg"
 fi
+
+if program_exists duf; then
+    alias df="duf"
+fi
+
